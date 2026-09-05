@@ -128,7 +128,7 @@ alpha_trim_rad = -0.04 / -0.8 1/rad = 0.05 rad
 alpha_trim_deg = 0.05 rad * 180 / pi = 2.864789 deg
 
 Disturbance response:
-delta_Cm = -0.8 1/rad * 0.0349065850 rad = -0.027925268 rad
+delta_Cm = -0.8 1/rad * 0.0349065850 rad = -0.027925268
 
 Expected classifications:
 selected condition = not trimmed
@@ -153,7 +153,7 @@ delta_alpha = +2.00 deg
 Expected Outputs
 Cm(alpha) = 0.00006686672
 Trim angle = 0.05 rad
-delta_Cm = -0.027925268 rad
+delta_Cm = -0.027925268
 selected condition = not trimmed
 disturbance tendency = restoring
 ```
@@ -172,7 +172,7 @@ delta_alpha = +4.00 deg
 Expected Outputs
 Cm(alpha) = 0.00006686672
 Trim angle = 0.05 rad
-delta_Cm = -0.05585056 rad
+delta_Cm = -0.05585056
 selected condition = not trimmed
 disturbance tendency = restoring
 
@@ -192,11 +192,10 @@ alpha = 2.86 deg
 delta_alpha = +2.00 deg
 
 Expected Outputs
-Cm(alpha) = 0
+Cm(alpha) = 0.04
 Trim angle = not avaliable
-delta_Cm = 0 rad
+delta_Cm = 0
 
-- Cm(alpha) = 0
 - Trim angle not avaliable beacause Cm_alpha = 0, theres no unique trim angle
 - disturbance tendency = neutral
 ```
