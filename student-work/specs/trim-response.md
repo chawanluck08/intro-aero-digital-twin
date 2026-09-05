@@ -121,18 +121,18 @@ alpha_rad = 2.86 * pi / 180 = 0.0499164166 rad
 delta_alpha_rad = +2.00 * pi / 180 = 0.0349065850 rad
 
 Current pitching-moment coefficient:
-Cm(alpha) = [SHOW WORK]
+Cm(alpha) = 0.04 + (-0.8 1/rad) * 0.0499164166 rad = 0.00006686672
 
 Trim angle:
-alpha_trim_rad = [SHOW WORK]
-alpha_trim_deg = [SHOW WORK]
+alpha_trim_rad = -0.04 / -0.8 1/rad = 0.05 rad
+alpha_trim_deg = 0.05 rad * 180 / pi = 2.864789 deg
 
 Disturbance response:
-delta_Cm = [SHOW WORK]
+delta_Cm = -0.8 1/rad * 0.0349065850 rad = -0.027925268 rad
 
 Expected classifications:
-selected condition = [trimmed / not trimmed]
-disturbance tendency = [restoring / neutral / destabilizing]
+selected condition = not trimmed
+disturbance tendency = restoring
 ```
 
 ## 9. Verification Cases — STUDENT COMPLETES
@@ -144,7 +144,18 @@ Define all three cases before implementation. Include exact inputs, expected out
 Use your Section 8 reference calculation.
 
 ```text
-[COMPLETE]
+Inputs:
+Cm0 = 0.04
+Cm_alpha = -0.8 1/rad
+alpha = 2.86 deg
+delta_alpha = +2.00 deg
+
+Expected Outputs
+Cm(alpha) = 0.00006686672
+Trim angle = 0.05 rad
+delta_Cm = -0.027925268 rad
+selected condition = not trimmed
+disturbance tendency = restoring
 ```
 
 ### 9.2 Behavioral case
@@ -152,7 +163,21 @@ Use your Section 8 reference calculation.
 Change one input and state the exact trend or sign that must result.
 
 ```text
-[COMPLETE]
+Inputs:
+Cm0 = 0.04
+Cm_alpha = -0.8 1/rad
+alpha = 2.86 deg
+delta_alpha = +4.00 deg
+
+Expected Outputs
+Cm(alpha) = 0.00006686672
+Trim angle = 0.05 rad
+delta_Cm = -0.05585056 rad
+selected condition = not trimmed
+disturbance tendency = restoring
+
+- delta cm remains negative and the magnitude should be double
+- disturbance tendency remains restoring
 ```
 
 ### 9.3 Boundary or sanity case
@@ -160,7 +185,20 @@ Change one input and state the exact trend or sign that must result.
 Use an informative boundary such as zero slope, zero disturbance, or the trim condition. State the exact behavior expected and why division by zero or a false physical claim must not occur.
 
 ```text
-[COMPLETE]
+Inputs:
+Cm0 = 0.04
+Cm_alpha = 0 1/rad
+alpha = 2.86 deg
+delta_alpha = +2.00 deg
+
+Expected Outputs
+Cm(alpha) = 0
+Trim angle = not avaliable
+delta_Cm = 0 rad
+
+- Cm(alpha) = 0
+- Trim angle not avaliable beacause Cm_alpha = 0, theres no unique trim angle
+- disturbance tendency = neutral
 ```
 
 ## 10. Feature Requirements
@@ -196,7 +234,7 @@ Do not modify any existing file.
 In one or two sentences, state what decision the completed feature will support and what it cannot establish.
 
 ```text
-[COMPLETE]
+It will support the decision of whether the AoA is trimmed and whether a small AoA disturbance produces restoring, neutral or destabilizing pitching moment tendency. It cannot establish overall aircraft safety, controllability or behavior outside the range of the variable in linear model. 
 ```
 
 ---
